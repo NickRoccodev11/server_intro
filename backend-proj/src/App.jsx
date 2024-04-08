@@ -1,0 +1,36 @@
+import { useState, useEffect } from 'react'
+import './App.css'
+import Petlist from './components/Petlist'
+import Owners from './components/Owners'
+import Navbar from './components/Navbar'
+import { Routes, Route } from 'react-router-dom'
+
+function App() {
+  const [pets, setPets] = useState([])
+  useEffect(() => {
+    const fetchPets = async () => {
+      try {
+        const res = await fetch('http://localhost:8080/api/v1/pets')
+        const petData = await res.json();
+        setPets(petData)
+      } catch (error) {
+
+      }
+    }
+    fetchPets()
+  }, [])
+  return (
+    <div id ="app">
+      <Navbar />
+      <h1> Welcome to Petfinder</h1>
+      <Routes>
+        <Route path="/" element={<Petlist pets={pets} />} />
+        <Route path="/owners" element={<Owners pets={pets} />} />
+      </Routes>
+
+
+    </div>
+  )
+}
+
+export default App
