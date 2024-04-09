@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddForm = () => {
-  const [name, setName] = useState("")
-  const [age, setAge] = useState("")
-  const [breed, setBreed] = useState("")
-  const [owner, setOwner] = useState("")
-  const [successMsg, setSuccessMsg] = useState("")
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [breed, setBreed] = useState("");
+  const [owner, setOwner] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,10 +28,10 @@ const AddForm = () => {
       const successMsg = await res.json();
       if (successMsg.msg) {
         setSuccessMsg(successMsg.msg)
-        setTimeout(() => navigate('/'), 1000)
+        setTimeout(() => navigate('/'), 1000);
       }
     } catch (error) {
-      console.error(error.message)
+      console.error(error.message);
     }
 
   }

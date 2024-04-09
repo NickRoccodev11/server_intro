@@ -1,25 +1,25 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 const Owners = ({ pets }) => {
-  const [owner, setOwner] = useState('')
-  const [ownerInfo, setOwnerInfo] = useState({})
-  const [error, setError] = useState({})
+  const [owner, setOwner] = useState('');
+  const [ownerInfo, setOwnerInfo] = useState({});
+  const [error, setError] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/api/v1/pets/owner?owner=${owner.toLowerCase()}`)
+      const res = await fetch(`http://localhost:8080/api/v1/pets/owner?owner=${owner.toLowerCase()}`);
       const ownerData = await res.json();
       if (ownerData.name) {
-        setOwnerInfo(ownerData)
-        setError({})
+        setOwnerInfo(ownerData);
+        setError({});
       } else {
-        setError(ownerData)
-        setOwnerInfo({})
+        setError(ownerData);
+        setOwnerInfo({});
       }
-      setOwner('')
+      setOwner('');
     } catch (error) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 

@@ -1,26 +1,26 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import Petlist from './components/Petlist'
-import Owners from './components/Owners'
-import Navbar from './components/Navbar'
-import AddForm from './components/AddForm'
-import { Routes, Route } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Petlist from './components/Petlist';
+import Owners from './components/Owners';
+import Navbar from './components/Navbar';
+import AddForm from './components/AddForm';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [pets, setPets] = useState([])
+  const [pets, setPets] = useState([]);
 
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/v1/pets')
+        const res = await fetch('http://localhost:8080/api/v1/pets');
         const petData = await res.json();
-        setPets(petData)
+        setPets(petData);
       } catch (error) {
 
       }
     }
-    fetchPets()
-  }, [])
+    fetchPets();
+  }, []);
   return (
     <>
       <Navbar />

@@ -1,25 +1,25 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 const Petlist = ({ pets }) => {
-  const [petName, setPetName] = useState("")
-  const [petDetails, setPetDetails] = useState({})
-  const [error, setError] = useState({})
+  const [petName, setPetName] = useState("");
+  const [petDetails, setPetDetails] = useState({});
+  const [error, setError] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/api/v1/pets/${petName.toLowerCase()}`)
+      const res = await fetch(`http://localhost:8080/api/v1/pets/${petName.toLowerCase()}`);
       const petData = await res.json();
       if (petData.name) {
-        setPetDetails(petData)
-        setError({})
+        setPetDetails(petData);
+        setError({});
       } else {
-        setError(petData)
-        setPetDetails({})
+        setError(petData);
+        setPetDetails({});
       }
-      setPetName('')
+      setPetName('');
     } catch (error) {
-      console.error(error.message)
+      console.error(error.message);
     }
   }
 
