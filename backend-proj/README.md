@@ -8,3 +8,5 @@ server is listening for three get requests:
 -parameter-based
 
 includes error checking for incorrect name submissions
+
+ADDED: post route for adding pets
