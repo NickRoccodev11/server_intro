@@ -10,7 +10,7 @@ app.use(express.json());
 
 //data
 const pets = [
-  { id: 1, name: "Goofy", owner: "Dan", age: 4, breed: "Dachshund" },
+  { id: 1, name: "Rex", owner: "Dan", age: 4, breed: "Dachshund" },
   { id: 2, name: "Flower", owner: "Trish", age: 7, breed: "Golden Retriever" },
   { id: 3, name: "Iggy", owner: "Matt", age: 10, breed: "Iguana" },
   { id: 4, name: "Whiskers", owner: "Sally", age: 6, breed: "Persian" },
@@ -43,6 +43,20 @@ app.get("/api/v1/pets/:name", (req, res) => {
     res.send({ msg: "we have no pets by that name" });
   }
 });
+
+app.post("/api/v1/pets/add",(req,res)=>{
+  const {name, age, breed, owner } = req.body;
+  const id = pets[pets.length-1].id+1
+  const newPet = {
+    id,
+    name,
+    age,
+    breed,
+    owner
+  }
+  pets.push(newPet)
+  res.send({msg:"success"})
+})
 
 //run the server on declared port
 app.listen(PORT, () => {

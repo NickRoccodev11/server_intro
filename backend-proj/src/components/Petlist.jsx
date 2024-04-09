@@ -46,8 +46,9 @@ const Petlist = ({ pets }) => {
         petDetails.name &&
         <div className='pet-details'>
           <h3>{petDetails.name}</h3>
-          <p>owner: {petDetails.owner}</p>
-          <p> breed: {petDetails.breed}</p>
+          <p><span>age:  </span> {petDetails.age}</p>
+          <p><span>owner: </span>  {petDetails.owner}</p>
+          <p> <span>breed: </span>  {petDetails.breed}</p>
         </div>
       }
       {

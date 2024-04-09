@@ -28,7 +28,7 @@ form>* {
 
 form {
   background-color: blanchedalmond;
-  padding:10px;
+  padding: 10px;
 }
 
 input {
@@ -41,9 +41,9 @@ button {
   color: white;
 }
 
-.response-p{
+.response-p {
   background-color: antiquewhite;
-  padding:30px;
+  padding: 30px;
   text-align: center;
   font-size: x-large;
 }
@@ -53,9 +53,13 @@ button {
   padding: 30px;
 }
 
-.pet-details{
+.pet-details {
   background-color: rgb(220, 205, 103);
   text-align: center;
   font-size: larger;
   padding: 10px;
+}
+
+span {
+  color: rgb(141, 31, 31);
 }

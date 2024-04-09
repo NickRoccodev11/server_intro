@@ -3,6 +3,7 @@ import './App.css'
 import Petlist from './components/Petlist'
 import Owners from './components/Owners'
 import Navbar from './components/Navbar'
+import AddForm from './components/AddForm'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Petlist pets={pets} />} />
           <Route path="/owners" element={<Owners pets={pets} />} />
+          <Route path="/add" element={<AddForm />} />
+
         </Routes>
       </div>
     </>

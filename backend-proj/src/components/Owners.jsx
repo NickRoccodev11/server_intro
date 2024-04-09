@@ -33,7 +33,6 @@ const Owners = ({ pets }) => {
           })
         }
       </ul>
-
       <form onSubmit={(e) => handleSubmit(e)}>
         <label > type in an owner's name to see their pet</label><br />
         <input
