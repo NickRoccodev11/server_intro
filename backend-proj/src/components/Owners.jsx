@@ -8,7 +8,7 @@ const Owners = ({ pets }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/api/v1/pets/owner?owner=${owner}`)
+      const res = await fetch(`http://localhost:8080/api/v1/pets/owner?owner=${owner.toLowerCase()}`)
       const ownerData = await res.json();
       if (ownerData.name) {
         setOwnerInfo(ownerData)
@@ -44,11 +44,11 @@ const Owners = ({ pets }) => {
       </form>
       {
         ownerInfo.name &&
-        <p>{ownerInfo.owner} owns {ownerInfo.name}</p>
+        <p className='response-p'>{ownerInfo.owner} owns {ownerInfo.name}</p>
       }
       {
         error.msg &&
-        <p>{error.msg}</p>
+        <p className='response-p'>{error.msg}</p>
       }
 
     </div>

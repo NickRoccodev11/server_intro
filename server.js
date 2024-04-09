@@ -10,9 +10,10 @@ app.use(express.json());
 
 //data
 const pets = [
-  { id: 1, name: "goofy", owner: "dan", age: 4, breed: "Dachshund" },
-  { id: 2, name: "flower", owner: "trish", age: 7, breed: "Golden Retriever" },
-  { id: 3, name: "florio", owner: "matt", age: 10, breed: "German Shepherd" },
+  { id: 1, name: "Goofy", owner: "Dan", age: 4, breed: "Dachshund" },
+  { id: 2, name: "Flower", owner: "Trish", age: 7, breed: "Golden Retriever" },
+  { id: 3, name: "Iggy", owner: "Matt", age: 10, breed: "Iguana" },
+  { id: 4, name: "Whiskers", owner: "Sally", age: 6, breed: "Persian" },
 ];
 
 //get request to an endpoint
@@ -23,7 +24,7 @@ app.get("/api/v1/pets", (req, res) => {
 //get request to using a query
 app.get("/api/v1/pets/owner", (req, res) => {
   const owner = req.query.owner;
-  const ownerObj = pets.find((pet) => pet.owner === owner);
+  const ownerObj = pets.find((pet) => pet.owner.toLowerCase() === owner);
   if (ownerObj) {
     res.send(ownerObj);
   } else {
@@ -34,7 +35,7 @@ app.get("/api/v1/pets/owner", (req, res) => {
 //get request using a parameter
 app.get("/api/v1/pets/:name", (req, res) => {
   let pet = pets.find((pet) => {
-    return pet.name === req.params.name;
+    return pet.name.toLowerCase() === req.params.name;
   });
   if (pet) {
     res.send(pet);

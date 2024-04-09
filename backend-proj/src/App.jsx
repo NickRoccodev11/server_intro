@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 
 function App() {
   const [pets, setPets] = useState([])
+
   useEffect(() => {
     const fetchPets = async () => {
       try {
@@ -20,16 +21,17 @@ function App() {
     fetchPets()
   }, [])
   return (
-    <div id ="app">
+    <>
       <Navbar />
-      <h1> Welcome to Petfinder</h1>
-      <Routes>
-        <Route path="/" element={<Petlist pets={pets} />} />
-        <Route path="/owners" element={<Owners pets={pets} />} />
-      </Routes>
+      <div id="app">
+        <h1> Welcome to Petfinder</h1>
+        <Routes>
+          <Route path="/" element={<Petlist pets={pets} />} />
+          <Route path="/owners" element={<Owners pets={pets} />} />
+        </Routes>
+      </div>
+    </>
 
-
-    </div>
   )
 }
 

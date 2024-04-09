@@ -8,7 +8,7 @@ const Petlist = ({ pets }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/api/v1/pets/${petName}`)
+      const res = await fetch(`http://localhost:8080/api/v1/pets/${petName.toLowerCase()}`)
       const petData = await res.json();
       if (petData.name) {
         setPetDetails(petData)
@@ -52,7 +52,7 @@ const Petlist = ({ pets }) => {
       }
       {
         error.msg &&
-        <p>{error.msg}</p>
+        <p className='response-p'>{error.msg}</p>
       }
     </div>
   )
