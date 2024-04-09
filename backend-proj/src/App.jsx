@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Petlist pets={pets} />} />
           <Route path="/owners" element={<Owners pets={pets} />} />
-          <Route path="/add" element={<AddForm />} />
+          <Route path="/add" element={<AddForm setPets={setPets} />} />
 
         </Routes>
       </div>

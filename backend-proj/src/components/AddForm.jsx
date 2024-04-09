@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AddForm = () => {
+const AddForm = ({setPets}) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [breed, setBreed] = useState("");
@@ -28,6 +28,7 @@ const AddForm = () => {
       const successMsg = await res.json();
       if (successMsg.msg) {
         setSuccessMsg(successMsg.msg)
+        setPets(successMsg.pets)
         setTimeout(() => navigate('/'), 1000);
       }
     } catch (error) {

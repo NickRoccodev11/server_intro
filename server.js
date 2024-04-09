@@ -44,19 +44,19 @@ app.get("/api/v1/pets/:name", (req, res) => {
   }
 });
 
-app.post("/api/v1/pets/add",(req,res)=>{
-  const {name, age, breed, owner } = req.body;
-  const id = pets[pets.length-1].id+1
+app.post("/api/v1/pets/add", (req, res) => {
+  const { name, age, breed, owner } = req.body;
+  const id = pets[pets.length - 1].id + 1;
   const newPet = {
     id,
     name,
     age,
     breed,
-    owner
-  }
-  pets.push(newPet)
-  res.send({msg:"success"})
-})
+    owner,
+  };
+  pets.push(newPet);
+  res.send({ msg: "success", pets: pets });
+});
 
 //run the server on declared port
 app.listen(PORT, () => {
