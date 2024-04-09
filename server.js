@@ -16,12 +16,12 @@ const pets = [
   { id: 4, name: "Whiskers", owner: "Sally", age: 6, breed: "Persian" },
 ];
 
-//get request to an endpoint
+//get request to an endpoint : get all animals
 app.get("/api/v1/pets", (req, res) => {
   res.send(pets);
 });
 
-//get request to using a query
+//get request using a query : get animal by owner 
 app.get("/api/v1/pets/owner", (req, res) => {
   const owner = req.query.owner;
   const ownerObj = pets.find((pet) => pet.owner.toLowerCase() === owner);
@@ -32,7 +32,7 @@ app.get("/api/v1/pets/owner", (req, res) => {
   }
 });
 
-//get request using a parameter
+//get request using a parameter : get animal by name
 app.get("/api/v1/pets/:name", (req, res) => {
   let pet = pets.find((pet) => {
     return pet.name.toLowerCase() === req.params.name;
@@ -44,6 +44,7 @@ app.get("/api/v1/pets/:name", (req, res) => {
   }
 });
 
+//post request using endpoint : add an animal 
 app.post("/api/v1/pets/add", (req, res) => {
   const { name, age, breed, owner } = req.body;
   const id = pets[pets.length - 1].id + 1;
